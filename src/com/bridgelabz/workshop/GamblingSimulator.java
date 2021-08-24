@@ -6,6 +6,7 @@ public class GamblingSimulator {
 	
 	int everyDayStake=EVERYDAYSTAKE;
 	int totalAmount=0;
+	int flag=0;
 	
 	public void stakeStatus() 
 	{                                                        //uc2
@@ -25,13 +26,28 @@ public class GamblingSimulator {
 	}
 	public void gamblingDays()                                 //uc4
 	{
-		int days=30;                                              //uc5
-		for(int index=1;index<=days;index++)                      
+		int days=30;                     
+		int averageStakeForMonth=3000;
+		flag++;
+		for(int index=1;index<=days;index++)                        //uc5
 		{
 			everyDayStake=100;
 			lossProfit();
 		}
 		System.out.println("Total stake at the end of "+days+" days "+ totalAmount);
+		System.out.println("Profit stake for month "+flag+" is "+(totalAmount-averageStakeForMonth));
+		if(totalAmount> averageStakeForMonth)
+		{                                                            //uc7
+			if(flag<2)
+			{
+				gamblingDays();
+			}
+		}
+		else
+		{
+			System.out.println("Loss Stake for month: "+ (averageStakeForMonth-totalAmount));
+			System.out.println("********PLAYER STOPS GAMBLING********");
+		}
 		
 		
 	}
