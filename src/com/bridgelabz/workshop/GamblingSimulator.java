@@ -25,8 +25,8 @@ public class GamblingSimulator {
 	}
 	public void gamblingDays()                                 //uc4
 	{
-		int days=30;
-		for(int index=1;index<=days;index++)
+		int days=30;                                              //uc5
+		for(int index=1;index<=days;index++)                      
 		{
 			everyDayStake=100;
 			lossProfit();
@@ -42,6 +42,14 @@ public class GamblingSimulator {
 			stakeStatus();
 			System.out.println("Gambling player has resigned for the day");
 			System.out.println("stake balance:"+ (everyDayStake));
+			if(everyDayStake>=150) 
+			{
+				System.out.println("****LUCKY DAYY*****WON MAXIMUM OF $150****");       //uc6
+			}
+			if(everyDayStake<=50) 
+			{
+				System.out.println("****UNLUCKY DAYY*****LOST MAXIMUM OF $150****");
+			}
 		}
 		totalAmount+=everyDayStake;
 		
